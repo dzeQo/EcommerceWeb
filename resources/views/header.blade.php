@@ -7,7 +7,7 @@
 
     <!-- Navbar Items (middle) -->
     <div class="navbar-nav mx-auto">
-      <a class="nav-link" href="#">Home</a>
+      <a class="nav-link" href="{{route('home')}}">Home</a>
       <a class="nav-link" href="#">Features</a>
       <a class="nav-link" href="#">About</a>
       <a class="nav-link" href="#">FAQs</a>
