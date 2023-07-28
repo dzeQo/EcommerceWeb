@@ -1,5 +1,7 @@
 @extends('master')
 
+@section('title' , 'EcomWeb - Login')
+
 @section('content')
 <div class="container">
     <div class="row">
