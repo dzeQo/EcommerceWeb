@@ -6,17 +6,18 @@
         <div class="d-flex align-items-center justify-content-center vh-100">  
             <div class="col-sm-4">
                 <br/><br/>
-                    <form>
+                    <form action="/login" method="POST">
+                        @csrf
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example1">Email address</label>
-                            <input type="email" id="form2Example1" class="form-control" />
+                            <input type="email" name="email" class="form-control" />
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example2">Password</label>
-                            <input type="password" id="form2Example2" class="form-control" />
+                            <input type="password" name="password" class="form-control" />
                         </div>
 
                         <!-- 2 column grid layout for inline styling -->

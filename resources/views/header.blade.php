@@ -7,7 +7,7 @@
 
     <!-- Navbar Items (middle) -->
     <div class="navbar-nav mx-auto">
-      <a class="nav-link" href="{{route('home')}}">Home</a>
+      <a class="nav-link" href="#">Home</a>
       <a class="nav-link" href="#">Features</a>
       <a class="nav-link" href="#">About</a>
       <a class="nav-link" href="#">FAQs</a>
@@ -19,7 +19,7 @@
       <a class="nav-link" href="#">
         <i class="bi bi-cart4">cart</i> <!-- Replace with store cart icon -->
       </a>
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('login') }}">
         <i class="bi bi-person"></i> Login<!-- Replace with login icon -->
       </a>
     </div>
