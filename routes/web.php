@@ -24,3 +24,6 @@ Route::get('/login', function () {
 
 Route::post('/login' , [UserController::class , 'signin']);
 Route::get('/' , [ProductController::class , 'index']);
+Route::get("/detail/{id}" , [ProductController::class , 'show_details']);
+Route::get("/search" , [ProductController::class , 'search']);
+Route::post("/add_to_cart" , [ProductController::class , 'AddToCart']);

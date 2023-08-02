@@ -17,11 +17,24 @@
     <!-- Right-aligned Icons -->
     <div class="d-flex">
       <a class="nav-link" href="#">
-        <i class="bi bi-cart4">cart</i> <!-- Replace with store cart icon -->
+        <i class="bi bi-cart4">cart(0)</i> <!-- Replace with store cart icon -->
       </a>
+      @auth()
       <a class="nav-link" href="{{ route('login') }}">
         <i class="bi bi-person"></i> Login<!-- Replace with login icon -->
       </a>
+      @endauth()
     </div>
   </div>
 </nav>
+<div class="row height d-flex justify-content-center align-items-center">
+  <div class="col-md-8">
+    <form action="/search">
+      <div class="search">
+        <i class="fa fa-search"></i>
+        <input type="text" name="query" class="form-control" placeholder="Searh anyting ...">
+        <button class="btn btn-outline-info">Search</button>
+      </div>
+    </form>               
+  </div>                    
+</div>

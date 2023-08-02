@@ -10,13 +10,15 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                @foreach ($products as $item)
+                @foreach ($recents as $item)
                     <div class="carousel-item {{$item['id']==1?'active':''}}">
-                        <img src="{{$item['gallery']}}" class="slider-img"  alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>{{$item['name']}}</h5>
-                            <p>{{$item['description']}}</p>
-                        </div>
+                        <a href="/detail/{{$item['id']}}">
+                            <img src="{{$item['gallery']}}" class="slider-img">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{$item['name']}}</h5>
+                                <p>{{$item['description']}}</p>
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -34,12 +36,14 @@
             <h3>Tranding Products</h3>
             @foreach ($products as $item)
                     <div class="tr-elem">
-                        <img class="tranding-img" src="{{$item['gallery']}}"  alt="...">
-                        <div class="">
-                            <h5>{{$item['name']}}</h5>
-                        </div>
+                        <a href="/detail/{{$item['id']}}">
+                            <img class="tranding-img" src="{{$item['gallery']}}"  alt="...">
+                            <div class="">
+                                <h5>{{$item['name']}}</h5>
+                            </div>
+                        </a>
                     </div>
-                @endforeach
+            @endforeach
         </div>
     </div>
 @endsection
