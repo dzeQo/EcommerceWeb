@@ -19,4 +19,7 @@ class UserController extends Controller
         return redirect('/');
        }
     }
+    function signOut(Request $req){
+        
+    }
 }
