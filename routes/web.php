@@ -25,7 +25,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/logout', function () {
-    Session()->forget('user');
+    Session()->forget('user'); 
     return Redirect('login');
 })->name('logout');
 
@@ -35,3 +35,5 @@ Route::get('/' , [ProductController::class , 'index']);
 Route::get("/detail/{id}" , [ProductController::class , 'show_details']);
 Route::get("/search" , [ProductController::class , 'search']);
 Route::post("/add_to_cart" , [ProductController::class , 'AddToCart']);
+Route::get("/cartList" , [ProductController::class , 'cartList']);
+Route::get("/RemoveFromCart/{id}" , [ProductController::class , 'RemoveFromCart']);

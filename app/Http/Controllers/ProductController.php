@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Cart;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -41,5 +42,18 @@ class ProductController extends Controller
     static function showCart(){
         $userId = Session::get('user')['id'];
         return Cart::where('user_id' , $userId)->count();
+    }
+    function cartList() {
+        $userId = Session::get('user')['id'];
+        $cartitems = DB::table('cart')
+                        ->join('products', 'cart.product_id', '=', 'products.id') // Corrected join statement
+                        ->where('cart.user_id', $userId)
+                        ->select('products.*' , 'cart.id as cart_id')
+                        ->get();
+        return view('cartList', ['cartitems' => $cartitems]);
+    }
+    function RemoveFromCart($id){
+        Cart::destroy($id);
+        return Redirect('cartList');
     }
 }

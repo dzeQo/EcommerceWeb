@@ -8,7 +8,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <!-- Logo (left) -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2L5yANkUMwwC4ATP-TCmwU779AR1FXaw1eA&usqp=CAU" alt="Logo" width="180" height="30">
     </a>
 
@@ -23,8 +23,9 @@
 
     <!-- Right-aligned Icons -->
     <div class="d-flex">
-      <a class="nav-link" href="#">
-        <i class="bi bi-cart4">cart({{$total}})</i> <!-- Replace with store cart icon -->
+      <a class="nav-link" href="/cartList">
+        <i class="fas fa-shopping-bag"></i>  cart({{$total}})
+        
       </a>
       @if (Session::has('user'))
       <div class="nav-item dropdown">
@@ -33,12 +34,11 @@
             <a href="/logout" class="dropdown-item">Logout</a>
         </div>
       </div>
-      @endif
-      @auth()
+      @elseif (!Session::has('user'))
       <a class="nav-link" href="{{ route('login') }}">
-        <i class="bi bi-person"></i> Login<!-- Replace with login icon -->
+        <i class="fas fa-sign-in-alt"></i>  Login<!-- Replace with login icon -->
       </a>
-      @endauth()
+      @endif
     </div>
   </div>
 </nav>

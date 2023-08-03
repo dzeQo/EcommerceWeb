@@ -32,18 +32,37 @@
             </button>
           </div>
         </div>
-        <div class="tranding-wrapper">
-            <h3>Tranding Products</h3>
-            @foreach ($products as $item)
-                    <div class="tr-elem">
-                        <a href="/detail/{{$item['id']}}">
-                            <img class="tranding-img" src="{{$item['gallery']}}"  alt="...">
-                            <div class="">
-                                <h5>{{$item['name']}}</h5>
+        <section class="text-center">
+            <h4 class="mt-4 ">Tranding Products </h4> 
+            <hr>
+            <div class="container mb-4">
+                <div class="row ">
+                    @if(count($products)>0)
+                        @foreach($products as $post)
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4">
+                        <div class="card shadow">
+                            <div class="card-body text-center">
+                                <a href="/detail/{{$post['id']}}">
+                                    <img  height="250px"  class="card-img-top" src="{{ $post->gallery }}" alt="{{ $post->name }}">
+                                </a>
+                                <ul class="list-inline mt-3">
+                                    <li class="list-inline-item"><i class="fas fa-money-check"></i> Price : {{ $post->price}} MAD</li>
+                                </ul>
+                                <hr>
+                                <p class="lead">{{ $post->name }}</p>
+                                <a class="btn btn-outline-dark my-2" href="/detail/{{$post['id']}}" role="button">View more ...</a>
                             </div>
-                        </a>
+                        </div>
                     </div>
-            @endforeach
-        </div>
+                    @endforeach
+                    @else
+                    <p class="alert alert-danger">No post found</p>
+                    @endif
+                </div> <br />
+                <!-- pagination -->
+            </div>
+             <!--Footer-->
+          </section>
+            <!-- latest plans-->  
     </div>
 @endsection
