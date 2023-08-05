@@ -8,6 +8,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
               </li>
+              @if (Session::has('user'))
+                <a class="nav-link" href="/myorders">My Orders</a>
+              @endif
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>

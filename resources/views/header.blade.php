@@ -16,18 +16,19 @@
     <div class="navbar-nav mx-auto">
       <a class="nav-link" href="/">Home</a>
       <a class="nav-link" href="#">Features</a>
+      @if (Session::has('user'))
+      <a class="nav-link" href="/myorders">My Orders</a>
+      @endif
       <a class="nav-link" href="#">About</a>
-      <a class="nav-link" href="#">FAQs</a>
       <a class="nav-link" href="#">Contact</a>
     </div>
 
     <!-- Right-aligned Icons -->
     <div class="d-flex">
-      <a class="nav-link" href="/cartList">
-        <i class="fas fa-shopping-bag"></i>  cart({{$total}})
-        
-      </a>
       @if (Session::has('user'))
+      <a class="nav-link" href="/cartList">
+        <i class="fas fa-shopping-bag"></i>  cart({{$total}}) 
+      </a>
       <div class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-user"></i>    {{Session::get('user')['name']}}    </a>
         <div class="dropdown-menu">
@@ -37,6 +38,9 @@
       @elseif (!Session::has('user'))
       <a class="nav-link" href="{{ route('login') }}">
         <i class="fas fa-sign-in-alt"></i>  Login<!-- Replace with login icon -->
+      </a>
+      <a class="nav-link" href="{{ route('register') }}">
+        <i class="fas fa-user-plus"></i> Sign Up<!-- Replace with login icon -->
       </a>
       @endif
     </div>
