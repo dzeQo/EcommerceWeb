@@ -8,7 +8,7 @@
         <div class="d-flex align-items-center justify-content-center vh-100">  
             <div class="col-sm-4">
                 <br/><br/>
-                    <form action="/signin" method="POST">
+                    <form action="{{url('signUp')}}" method="POST">
                         @csrf
 
                         <!-- Email input -->

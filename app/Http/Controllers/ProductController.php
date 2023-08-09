@@ -15,7 +15,7 @@ class ProductController extends Controller
     //
     function index(){
         $recents = Product::latest()->take(3)->get();
-        $data = Product::take(4)->get();
+        $data = Product::all();
         return  view('product' , ['products'=> $data , 'recents'=>$recents]);
     }
 
@@ -89,5 +89,86 @@ class ProductController extends Controller
                             ->where('orders.user_id', $userId)
                             ->get();
         return view('orders' , ['orders' => $orders]);
+    }
+
+    //backoffice data controlling
+
+    //bring all the products
+    public function indexOfProducts(){
+        $products = Product::all();
+        return view('admin.ManageP.index' , ['products' => $products]);
+    }
+    //adding products 
+    public function create(){
+        return view('admin.ManageP.add');
+    }
+    public function AddProduct(Request $req){
+        $req->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'description'=>'required',
+            'gallery'=>'required'
+        ]);
+        $prd = new Product;
+        $prd->name = $req->name;
+        $prd->price = $req->price;
+        $prd->category = $req->category;
+        $prd->description = $req->description;
+        $prd->gallery = $req->gallery;
+        $prd->save();
+
+        return redirect('admin/ManageP/')->with('done','product has been added'); 
+    }
+
+    //delete products
+    public function trashProduct($id){
+        Product::where('id' , $id)->delete();
+        return redirect('admin/ManageP');
+    }
+
+    //edit products
+    public function update($id){
+        $data=Product::find($id);
+        return view('admin.ManageP.update' , ['data'=>$data]);
+    }
+    public function updateProduct( Request $req ,  $id){
+        $req->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'description'=>'required',
+            'gallery'=>'required'
+        ]);
+        $prd = Product::find($id);
+        $prd->name = $req->name;
+        $prd->price = $req->price;
+        $prd->category = $req->category;
+        $prd->description = $req->description;
+        $prd->gallery = $req->gallery;
+        $prd->save();
+
+        return redirect('admin/ManageP/')->with('done' , 'data has been updated successfully !!');
+    }
+
+    //bring all carts
+    public function indexOfCarts(){
+        $carts = Cart::all();
+        return view('admin.ManageCart.index' , ['carts' => $carts]);
+    }
+    //bring  orders
+    public function indexOfOrders(){
+        $orders = Order::all();
+        return view('admin.ManageOrders.index' , ['Orders' => $orders]);
+    }
+    //trash orders
+    public function trashOrder($id){
+        Order::where('id' , $id)->delete();
+        return redirect('admin/ManageOrders');
+    }
+    //update the situation of order (dilevred  ,payed or not)
+    public function editview($id){
+        $orderToEdit = Order::where('id' , $id);
+        return view('admin.ManageOrders.update' , ['orderToEdit' =>$orderToEdit ]);
     }
 }

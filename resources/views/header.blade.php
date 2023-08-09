@@ -8,13 +8,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <!-- Logo (left) -->
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="{{url('/') }}">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2L5yANkUMwwC4ATP-TCmwU779AR1FXaw1eA&usqp=CAU" alt="Logo" width="180" height="30">
     </a>
 
     <!-- Navbar Items (middle) -->
     <div class="navbar-nav mx-auto">
-      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="{{url('/') }}">Home</a>
       <a class="nav-link" href="#">Features</a>
       @if (Session::has('user'))
       <a class="nav-link" href="/myorders">My Orders</a>
@@ -32,14 +32,14 @@
       <div class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-user"></i>    {{Session::get('user')['name']}}    </a>
         <div class="dropdown-menu">
-            <a href="/logout" class="dropdown-item">Logout</a>
+            <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
         </div>
       </div>
       @elseif (!Session::has('user'))
-      <a class="nav-link" href="{{ route('login') }}">
+      <a class="nav-link" href="{{ url('login') }}">
         <i class="fas fa-sign-in-alt"></i>  Login<!-- Replace with login icon -->
       </a>
-      <a class="nav-link" href="{{ route('register') }}">
+      <a class="nav-link" href="{{ url('register') }}">
         <i class="fas fa-user-plus"></i> Sign Up<!-- Replace with login icon -->
       </a>
       @endif

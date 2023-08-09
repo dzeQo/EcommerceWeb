@@ -8,7 +8,7 @@
         <div class="d-flex align-items-center justify-content-center vh-100">  
             <div class="col-sm-4">
                 <br/><br/>
-                    <form action="/login" method="POST">
+                    <form action="{{route('login')}}" method="POST">
                         @csrf
                         <!-- Email input -->
                         <div class="form-outline mb-4">

@@ -32,4 +32,16 @@ class UserController extends Controller
             return redirect('/login');
         }
     }
+
+    //all the users
+    public function indexOfUsers(){
+        $users = User::all();
+        return view('admin.users.index' , ['users' => $users]);
+    }
+
+    //delete users 
+    public function destroy($id){
+        User::where('id' , $id)->delete();
+        return redirect('admin/users');
+    }
 }

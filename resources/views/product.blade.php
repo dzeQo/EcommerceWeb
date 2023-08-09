@@ -50,7 +50,7 @@
                                 </ul>
                                 <hr>
                                 <p class="lead">{{ $post->name }}</p>
-                                <a class="btn btn-outline-dark my-2" href="/detail/{{$post['id']}}" role="button">View more ...</a>
+                                <a class="btn btn-outline-dark my-2" href="/detail/{{$post->id}}" role="button">View more ...</a>
                             </div>
                         </div>
                     </div>
