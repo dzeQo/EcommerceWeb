@@ -30,7 +30,7 @@
                                 </tbody>
                             </table>
                             <div><br><br>
-                                <form action="/orderplace" method="POST">
+                                <form action="{{url('/orderplace')}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <textarea class="form-control" name="address" placeholder="Enter your Address here ..." rows="5" id="comment" name="text"></textarea>

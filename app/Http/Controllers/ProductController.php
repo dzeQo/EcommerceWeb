@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Cart;
+use App\Models\comments;
 use App\Models\Order;
 use Session;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,23 @@ class ProductController extends Controller
         $data =  Product::find($id);
         return view('details' , ['product' =>$data]);
     }
+
+    //adding comments function to products
+    public function save_comment(Request $req , $pid ){
+        $user = Session::get('user')['name'];
+        $req->validate([
+            'comment' => 'required'
+        ]);
+        $cm = new comments;
+        $cm->product_id = $pid;
+        $cm->username = $user;
+        $cm->comment = $req->comment;
+        $cm->status = 0;
+        $cm->save();
+
+        return redirect()->back();
+    }
+
     
     function search( Request $req){
         $data = Product::where('name' ,'like' , '%' . $req->input('query') .'%')->get();
@@ -117,8 +135,8 @@ class ProductController extends Controller
         $prd->description = $req->description;
         $prd->gallery = $req->gallery;
         $prd->save();
-
-        return redirect('admin/ManageP/')->with('done','product has been added'); 
+        
+        return redirect('admin/ManageP')->with('success','product has been added'); 
     }
 
     //delete products
@@ -148,7 +166,7 @@ class ProductController extends Controller
         $prd->gallery = $req->gallery;
         $prd->save();
 
-        return redirect('admin/ManageP/')->with('done' , 'data has been updated successfully !!');
+        return redirect('admin/ManageP')->with('success', 'Product has been updated');
     }
 
     //bring all carts
@@ -168,7 +186,22 @@ class ProductController extends Controller
     }
     //update the situation of order (dilevred  ,payed or not)
     public function editview($id){
-        $orderToEdit = Order::where('id' , $id);
+        $orderToEdit = Order::where('id' , $id)->first();
         return view('admin.ManageOrders.update' , ['orderToEdit' =>$orderToEdit ]);
     }
+
+    public function updateOrder( Request $req , $id){
+        $order = Order::find($id)->first();
+        $req->validate([
+            'status' => 'required',
+            'payement_status'=>'required'
+        ]);
+        $order = Order::find($id);
+        $order->status = $req->status;
+        $order->payement_status  = $req->pstatus;
+        $order->save();
+
+        return redirect('admin/ManageOrders')->with('done' , 'Order updated successfullly !');
+    }
+
 }

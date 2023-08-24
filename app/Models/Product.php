@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    public function comments(){
+        return $this->hasMany('App\models\Comments')->orderBy('id' , 'desc')->where('status' , 1);
+    }
 }

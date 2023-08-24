@@ -15,13 +15,14 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">EcomWeb - BackOffice</div>
+                <div class="sidebar-heading border-bottom bg-light">T9edda Leya - BackOffice</div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="{{url('/admin/dashboard')}}"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/users')}}"><i class="fas fa-users"></i>  Users</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/ManageP')}}"><i class="fas fa-store"></i>  Products</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/ManageOrders')}}"><i class="fas fa-shopping-bag"></i>  Orders</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/ManageCart')}}"><i class="fas fa-shopping-cart"></i>  Carts</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/comment')}}"><i class="fas fa-comments"></i>  Comments</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -33,10 +34,11 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                               
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-users-cog"></i> Admin</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                        <a class="dropdown-item" href="{{url('/admin/logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                                         <a class="dropdown-item" href="#!"><i class="fas fa-user-circle"></i> Profile</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/admin/logout"><i class="fas fa-random"></i> switch account</a>

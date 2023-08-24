@@ -30,7 +30,7 @@
                                             <div class="cart_item_total cart_info_col">
                                                 <div class="cart_item_title">Total</div>
                                                 <div class="cart_item_text">
-                                                    <a href="/RemoveFromCart/{{$item->cart_id}}" class="btn btn-warning"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{url('/RemoveFromCart/'.$item->cart_id)}}" class="btn btn-warning"><i class="fas fa-trash"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <div class="cart_buttons"> <a href="/" type="button" class="button cart_button_clear">Back To Shopping</a> <a href="/OrderNow" type="button" class="button cart_button_checkout">Order Now</a> </div>
+                        <div class="cart_buttons"> <a href="/" type="button" class="button cart_button_clear">Back To Shopping</a> <a href="{{url('OrderNow')}}" type="button" class="button cart_button_checkout">Order Now</a> </div>
                 </div>
             </div>
         </div>

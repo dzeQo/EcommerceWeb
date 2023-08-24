@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminCtrl;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -79,3 +81,31 @@ Route::get('admin/ManageOrders' , [ProductController::class , 'indexOfOrders']);
 Route::get('admin/ManageOrders/trash/{id}' , [ProductController::class , 'trashOrder']); 
 Route::get('admin/ManageOrders/update/{id}' , [ProductController::class , 'editview']);
 Route::post('admin/ManageOrders/{id}/edit' , [ProductController::class , 'updateOrder']);
+
+
+//product by categories 
+
+Route::get("/categories/clothes" , [CategoryController::class , 'clothes']);
+Route::get("/categories/phones" , [CategoryController::class , 'phones']);
+Route::get("/categories/sport" , [CategoryController::class , 'sport']);
+Route::get("/categories/Phones's accessories" , [CategoryController::class , 'AccOfPhones']);
+Route::get("/categories/electromenager" , [CategoryController::class , 'homePrd']);
+Route::get("/categories/fornitures" , [CategoryController::class , 'fornitures']);
+Route::get("/categories/beauty" , [CategoryController::class , 'beauty']);
+Route::get("/categories/health" , [CategoryController::class , 'health']);
+Route::get("/categories/kitchen" , [CategoryController::class , 'kitchen']);
+Route::get("/categories/gaming" , [CategoryController::class , 'gaming']);
+
+
+//pages view 
+Route::get('/privacy&policy' , function (){
+    return view('privacy');
+})->name('pp');
+
+//comments route
+Route::post('/save-comment/{id}',[ProductController::class,'save_comment']);
+Route::get('/admin/comments' , [CommentController::class , 'index']);
+Route::get('admin/comments/update/{id}' , [CommentController::class , 'updateCmnt']);
+Route::post('admin/comments/{id}/edit' , [CommentController::class , 'editCmnt']);
+Route::get('admin/comments/trash/{id}' , [CommentController::class , 'TrachComment']); 
+

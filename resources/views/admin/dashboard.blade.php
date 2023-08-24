@@ -5,7 +5,7 @@
   <!-- Breadcrumbs-->
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="/admin/dashboard">Dashboard</a>
+      <a href="{{url('/admin/dashboard')}}">Dashboard</a>
     </li>
     <li class="breadcrumb-item active">Overview</li>
   </ol>
@@ -71,6 +71,22 @@
           <div class="mr-5">{{\App\Models\Order::count()}} Orders</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="{{url('admin/ManageOrders')}}">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-6 col-sm-12 mb-3">
+      <div class="card text-white bg-info o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="mr-5">{{\App\Models\Comments::count()}} Comments</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="{{url('admin/comments')}}">
           <span class="float-left">View Details</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>

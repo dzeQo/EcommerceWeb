@@ -1,0 +1,5 @@
+            <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/users')}}"><i class="fas fa-users"></i>  Users</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/ManageP')}}"><i class="fas fa-store"></i>  Products</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/ManageOrders')}}"><i class="fas fa-shopping-bag"></i>  Orders</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url('admin/ManageCart')}}"><i class="fas fa-shopping-cart"></i>  Carts</a>

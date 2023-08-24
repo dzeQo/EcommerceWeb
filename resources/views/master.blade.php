@@ -13,6 +13,7 @@
     {{-- js from bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>@yield('title'  , 'Unknown Page')</title>
+    
 </head>
 <body>
     {{View::make('header')}}
@@ -34,4 +35,20 @@
     $.fn.b4 = bootstrap_4;
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</html>
+<script>
+    document.getElementById("searchToggle").addEventListener("click", function (event) {
+        event.preventDefault();
+        const searchForm = document.querySelector(".search-form");
+        searchForm.classList.toggle("d-none");
+    });
+</script>
+<script>
+    const toggleButton = document.getElementById('toggleSidebar');
+    const sidebarWrapper = document.getElementById('sidebar-wrapper');
+    const pageContentWrapper = document.getElementById('page-content-wrapper');
+    
+    toggleButton.addEventListener('click', () => {
+        sidebarWrapper.classList.toggle('expanded');
+        pageContentWrapper.classList.toggle('shifted');
+    });
+</script>

@@ -16,9 +16,9 @@
     <li class="breadcrumb-item active">Carts</li>
   </ol>
 
-  @if(Session::has('done'))
+  @if(Session('done'))
     <div class="alert alert-success" role="alert">
-      {{Session::get('done')}}
+      {{Session('done')}}
     </div>
   @endif
   <!-- DataTables Example -->

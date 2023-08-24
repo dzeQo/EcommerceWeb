@@ -7,18 +7,18 @@
 <div class="container-fluid">
 
   <!-- Breadcrumbs-->
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="index.html">Overview</a>
-    </li>
-    <li class="breadcrumb-item active">Products</li>
-  </ol>
-
-  @if(Session::has('done'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('done')}}
-    </div>
-  @endif
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Overview</a>
+      </li>
+      <li class="breadcrumb-item active">Products</li>
+    </ol>
+    @if(session('success'))
+      @dd(session('success'))
+      <div class="alert alert-success" role="alert">
+        {{session('success')}}
+      </div>
+    @endif
   <!-- DataTables Example -->
   <div class="card mb-3">
     <div class="card-header">

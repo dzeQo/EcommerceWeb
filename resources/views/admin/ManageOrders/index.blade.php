@@ -14,9 +14,9 @@
     <li class="breadcrumb-item active">Orders</li>
   </ol>
 
-  @if(Session::has('done'))
+  @if(Session('success'))
     <div class="alert alert-success" role="alert">
-      {{Session::get('done')}}
+      {{Session::get('success')}}
     </div>
   @endif
   <!-- DataTables Example -->
@@ -60,7 +60,7 @@
                 <td class="text-center"> {{$item->payement_status}} </td>
                 <td class="text-center " width="150px" > {{$item->address}} </td>
                 <td class="text-center">
-                  <a class="btn btn-warning btn-sm" href="{{url('admin/ManageP/edit/'.$item->id)}}"><i class="fas fa-edit"></i></a>
+                  <a class="btn btn-warning btn-sm" href="{{url('admin/ManageOrders/update/'.$item->id)}}"><i class="fas fa-edit"></i></a>
                   <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm" href="{{url('admin/ManageP/trash/'.$item->id)}}"><i class="fas fa-trash"></i></a>
                 </td>
               </tr>
