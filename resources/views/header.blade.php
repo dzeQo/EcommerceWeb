@@ -5,7 +5,7 @@
     $total = ProductController::showCart();
   }
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand-lg" style="background-color: #96B6C5;">
   <div class="container-fluid">
     <!-- Logo (left) -->
     <a class="navbar-brand" href="{{url('/') }}">
@@ -46,7 +46,7 @@
     </div>
   </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg"style="background-color: #96B6C5;">
   <div class="container">
     <div class="collapse navbar-collapse" id="navbarNav2">      
       <ul class="nav-menu clearfix unstyled">
@@ -83,13 +83,13 @@
           <span class="three-d-box"><span class="front">My Orders</span><span class="back">My Orders</span></span>
         </a></li>
         @endif
-        <li><a href="#" class="three-d">
-          About
-          <span class="three-d-box"><span class="front">About</span><span class="back">About</span></span>
+        <li><a href="{{ url('/about-us') }}" class="three-d">
+          About Us
+          <span class="three-d-box"><span class="front">About Us</span><span class="back">About Us</span></span>
         </a></li>
-        <li><a href="#" class="three-d">
-          Contact
-          <span class="three-d-box"><span class="front">Contact</span><span class="back">Contact</span></span>
+        <li><a href="{{ url('/contact-us') }}" class="three-d">
+          Contact Us
+          <span class="three-d-box"><span class="front">Contact Us</span><span class="back">Contact Us</span></span>
         </a></li>
       </ul>
     </div>

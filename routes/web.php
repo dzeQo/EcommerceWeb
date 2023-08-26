@@ -102,10 +102,24 @@ Route::get('/privacy&policy' , function (){
     return view('privacy');
 })->name('pp');
 
+Route::get('/about-us' , function(){
+    return view('about');
+})->name('aboutus');
+
+Route::get('/contact-us' , function(){
+    return view('contact');
+})->name('aboutus');
+
+
 //comments route
 Route::post('/save-comment/{id}',[ProductController::class,'save_comment']);
 Route::get('/admin/comments' , [CommentController::class , 'index']);
 Route::get('admin/comments/update/{id}' , [CommentController::class , 'updateCmnt']);
 Route::post('admin/comments/{id}/edit' , [CommentController::class , 'editCmnt']);
 Route::get('admin/comments/trash/{id}' , [CommentController::class , 'TrachComment']); 
+
+
+//mailing route
+Route::get('send-mail', 'ContactController@sendMail')->name('send.mail');
+
 
