@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -20,9 +21,9 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
 //login view
 Route::get('/login', function () {
@@ -45,7 +46,7 @@ Route::post('/login' , [UserController::class , 'LogIn']);
 Route::post('/signUp' , [UserController::class , 'SignIn']);
 
 //products routes 
-Route::get('/' , [ProductController::class , 'index']);
+Route::get('/' , [ProductController::class , 'index'])->name('home');
 Route::get("/detail/{id}" , [ProductController::class , 'show_details']);
 Route::get("/search" , [ProductController::class , 'search']);
 Route::post("/add_to_cart" , [ProductController::class , 'AddToCart']);
@@ -120,6 +121,5 @@ Route::get('admin/comments/trash/{id}' , [CommentController::class , 'TrachComme
 
 
 //mailing route
-Route::get('send-mail', 'ContactController@sendMail')->name('send.mail');
-
+Route::match('post', '/send_message', [ContactController::class, 'sendMail']);
 

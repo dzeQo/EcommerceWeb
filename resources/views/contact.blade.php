@@ -11,8 +11,9 @@
     
     <!-- Left contact page --> 
       
-      <form id="contact-form" class="form-horizontal" role="form">
+      <form action="{{url('/send_message')}}" id="contact-form" class="form-horizontal" method="POST" role="form">
          
+      
         <div class="form-group">
           <div class="col-sm-12">
             <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>

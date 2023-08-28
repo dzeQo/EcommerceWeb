@@ -1,8 +1,7 @@
 @extends('master')
 @section('title' ,'EcomWeb - Products' )
 @section('content')
-<br><br/>
-    
+<br><br/><br><br/><br><br/><br><br/>
 <div class="container mt-5">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -30,7 +29,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
+</div>
 
 
   

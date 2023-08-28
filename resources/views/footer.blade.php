@@ -74,7 +74,7 @@
                                 @endif
                                 <li><a href="{{route('pp') }}">Privacy & Policy</a></li>
                                 <li><a href="{{ url('/about-us')}}">About Us</a></li>
-                                <li><a href="{{ url('/categories/clothes')}}">Contact Us</a></li>
+                                <li><a href="{{ url('/contact-us')}}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>

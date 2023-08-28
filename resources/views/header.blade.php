@@ -48,13 +48,16 @@
 </nav>
 <nav class="navbar navbar-expand-lg"style="background-color: #96B6C5;">
   <div class="container">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2">
+      <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav2">      
       <ul class="nav-menu clearfix unstyled">
-        <li><a href="{{url('/') }}" class="three-d active">
+        <li><a href="{{url('/') }}" data-url="{{route('home')}}" class="three-d">
           Home
           <span class="three-d-box"><span class="front">Home</span><span class="back">Home</span></span>
         </a></li>
-        <li><a href="#" class="three-d">
+        <li><a href="#" data-url="categories" class="three-d">
           Categories
           <span class="three-d-box"><span class="front">Categories</span><span class="back">Categories</span></span>
         </a>
@@ -63,7 +66,7 @@
                 Phones
                 <span class="three-d-box"><span class="front">Phones</span><span class="back">Phones</span></span>
               </a></li>
-              <li><a href="{{ url('/categories/clothes')}}" class="three-d">
+              <li><a href="{{ url('/categories/clothes')}}"  class="three-d">
                 Clothes
                 <span class="three-d-box"><span class="front">Clothes</span><span class="back">Clothes</span></span>
               </a></li>
@@ -78,22 +81,38 @@
           </ul>
         </li>
         @if (Session::has('user'))
-        <li><a href="{{ url('/myorders')}}" class="three-d">
+        <li><a href="{{ url('/myorders')}}"  data-url="{{ url('/myorders')}}" class="three-d">
           My Orders
           <span class="three-d-box"><span class="front">My Orders</span><span class="back">My Orders</span></span>
         </a></li>
         @endif
-        <li><a href="{{ url('/about-us') }}" class="three-d">
+        <li><a href="{{ url('/about-us') }}" data-url="{{ url('/about-us') }}" class="three-d">
           About Us
           <span class="three-d-box"><span class="front">About Us</span><span class="back">About Us</span></span>
         </a></li>
-        <li><a href="{{ url('/contact-us') }}" class="three-d">
+        <li><a href="{{ url('/contact-us') }}" data-url="{{ url('/contact-us') }}" class="three-d">
           Contact Us
           <span class="three-d-box"><span class="front">Contact Us</span><span class="back">Contact Us</span></span>
         </a></li>
       </ul>
     </div>
 </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPageUrl = window.location.href;
+
+    const navLinks = document.querySelectorAll(".nav-menu li a");
+
+    navLinks.forEach((link) => {
+      if (link.getAttribute("data-url") === currentPageUrl) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
 
 
 

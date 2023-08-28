@@ -583,19 +583,20 @@ ul {
 /*nav bar styling*/
 ul, li {
   list-style: none outside none;
+  padding: 0;
+  margin: 0;
 }
 /* basic menu styles */
 .nav-menu {
   display: flex;
+  justify-content: center; /* Center-align items */
   align-items: center;
   background: #96B6C5;
-  width:700px;
-  margin: auto auto 150px;
-  margin-top: -8px;
+  width: 100%; /* Full width */
 }
+
 .nav-menu > li {
   display: inline-block;
-  border-right:1px solid #96B6C5;
   position: relative;
 }
 .nav-menu > li:last-child {
@@ -760,7 +761,47 @@ ul, li {
   -o-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
+.navbar-toggler {
+  border-color: transparent;
+  color: white;
+}
 
+.navbar-toggler-icon {
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  
+  .nav-menu {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .nav-menu > li {
+    width: 100%; /* Full width */
+    border-right: none;
+    margin-right: 0;
+    border-bottom: 1px solid #96B6C5;
+  }
+
+  .nav-menu li ul {
+    position: static; /* Show sub-menu under the parent item */
+    transform: none;
+    transition: none;
+    display: none; /* Hide sub-menu by default */
+  }
+
+  .nav-menu > li:hover ul {
+    display: block; /* Show sub-menu on hover */
+  }
+
+  .nav-menu li a {
+    padding: 15px 15px; /* Adjust padding */
+    font-size: 18px; /* Reduce font size */
+  }
+
+  /* ... (any other responsive adjustments) ... */
+}
 .about-section {
     background-color: #f8f8f8;
     padding: 30px 0;
@@ -1037,5 +1078,32 @@ hr {
 @media screen and (max-width: 410px) {
   .send-button {
     width: 99%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust font sizes for better readability */
+  h1 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 16px;
+  }
+  
+  /* Adjust contact form */
+  .form-horizontal {
+    max-width: 100%;
+  }
+  /* Adjust social media icons */
+  .social-media-list li {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 2rem;
+  }
+  .social-media-list li:after {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
   }
 }

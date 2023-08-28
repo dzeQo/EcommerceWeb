@@ -20,9 +20,9 @@ class ContactController extends Controller
            'email'=>$request->email,
            'message'=>$request->message
        ];
+       Mail::to('tqedaleya@gmail.com')->send(new OrderShipped($data));        
+       return redirect('/contact-us');
 
-       Mail::to('fssmmag@gmail.com')->send(new OrderShipped($data));
-        return back()->with('success' , 'votre message a bien envoyé');
     }
 
 }
